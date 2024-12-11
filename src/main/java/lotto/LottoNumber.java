@@ -26,4 +26,3 @@ public class LottoNumber {
         return numList;
     }
 }
-

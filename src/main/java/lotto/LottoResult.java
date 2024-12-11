@@ -9,7 +9,6 @@ public class LottoResult {
     private final List<Integer> winNumberList;
 
     public LottoResult() {
-        System.out.println("지난 주 당첨 번호를 입력해 주세요.");
         this.winNumberList = winNumber();
     }
 
@@ -29,9 +28,33 @@ public class LottoResult {
         return winNumberList;
     }
 
+    public List<Integer> getWinNumberList() {
+        return winNumberList;
+    }
+
+    // 당첨번호를 출력해주는 함수
     public void printWinNumbers() {
         System.out.println(winNumberList.toString());
     }
+
+    public int WhatRank(LottoNumber randomNumbers) {
+        int count = 0;
+        List<Integer> randomNumbersList = randomNumbers.getNumList();
+        List<Integer> winNumbersList = getWinNumberList();
+
+        for (Integer num : randomNumbersList) {
+            if (winNumbersList.contains(num)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+
+
+
+
 }
 
 
