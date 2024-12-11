@@ -7,13 +7,15 @@ import java.util.Scanner;
 public class Ui {
     private int lottoNumbers;
     private List<LottoNumber> randomNumbersList = new ArrayList<>();
+    private double purchaseAmount;
 
 
     public void enterAmount() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("구입금액을 입력해주세요.");
         LottoCount lottoCount = new LottoCount(scanner.nextInt());
-
+        // 구매장수에 도로 1000을 곱하는게 마음에 안들긴함
+        purchaseAmount = lottoCount.count() * 1000;
         System.out.println(lottoCount.count() + "개를 구매했습니다.");
         // 몇개구매했는지를 lottoNumbers에 복사
         this.lottoNumbers = lottoCount.count();
@@ -50,9 +52,21 @@ public class Ui {
             }
         }
         System.out.println("3개일치 (5000원)-" + threeMatches + "개");
-        System.out.println("4개일치 (10000원)-"+ fourMatches + "개");
-        System.out.println("5개일치 (9000000원)-"+ fiveMatches + "개");
-        System.out.println("6개일치 (10000000000000원)-"+ sixMatches + "개");
+        System.out.println("4개일치 (50000원)-"+ fourMatches + "개");
+        System.out.println("5개일치 (1500000원)-"+ fiveMatches + "개");
+        System.out.println("6개일치 (2000000000원)-"+ sixMatches + "개");
+        int threeMatchesPurchaseAmount = threeMatches * 5000;
+        int fourMatchesPurchaseAmount = fourMatches * 50000;
+        int fiveMatchesPurchaseAmount = fiveMatches * 1500000;
+        int sixMatchesPurchaseAmount = sixMatches * 2000000000;
+        int totalPurchaseAmount =
+                threeMatchesPurchaseAmount +
+                        fourMatchesPurchaseAmount+
+                        fiveMatchesPurchaseAmount+
+                        sixMatchesPurchaseAmount;
+        System.out.println("총 수익률은" +
+                ((totalPurchaseAmount - purchaseAmount) /
+                        purchaseAmount + 1) + " 입니다.");
     }
 
 }
