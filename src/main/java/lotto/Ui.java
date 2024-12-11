@@ -31,28 +31,28 @@ public class Ui {
         LottoResult result = new LottoResult();
         result.printWinNumbers();
         int rank;
-        int 육개 = 0;
-        int 오개 = 0;
-        int 사개 = 0;
-        int 삼개 = 0;
+        int sixMatches = 0;
+        int fiveMatches = 0;
+        int fourMatches = 0;
+        int threeMatches = 0;
         for (LottoNumber i : randomNumbersList) {
             rank = result.WhatRank(i);
             if (rank > 5) {
-                육개++;
+                sixMatches++;
             }
             else if (rank > 4) {
-                오개++;
+                fiveMatches++;
             }
             else if (rank > 3) {
-                사개++;
+                fourMatches++;
             } else if (rank == 3) {
-                삼개++;
+                threeMatches++;
             }
         }
-        System.out.println("3개일치 (5000원)-" + 삼개 + "개");
-        System.out.println("4개일치 (10000원)-"+ 사개 + "개");
-        System.out.println("5개일치 (9000000원)-"+ 오개 + "개");
-        System.out.println("6개일치 (10000000000000원)-"+ 육개 + "개");
+        System.out.println("3개일치 (5000원)-" + threeMatches + "개");
+        System.out.println("4개일치 (10000원)-"+ fourMatches + "개");
+        System.out.println("5개일치 (9000000원)-"+ fiveMatches + "개");
+        System.out.println("6개일치 (10000000000000원)-"+ sixMatches + "개");
     }
 
 }
